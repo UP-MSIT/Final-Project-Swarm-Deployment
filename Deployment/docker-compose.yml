@@ -1,0 +1,42 @@
+version: '3.5'
+
+services:
+
+  service-financial-service-web:
+    image: nexus.sithvothykiv.site:8888/financial-service-web:v0.0.3
+    ports:
+      - 6001:80
+    deploy:
+      mode: global
+      update_config:
+        parallelism: 1
+        order: start-first
+        failure_action: rollback
+      restart_policy:
+        condition: on-failure
+
+  service-pet-shop-web:
+    image: nexus.sithvothykiv.site:8888/pet-shop-web:latest
+    ports:
+      - 6002:80
+    deploy:
+      mode: global
+      update_config:
+        parallelism: 1
+        order: start-first
+        failure_action: rollback
+      restart_policy:
+        condition: on-failure
+
+  service-selo-web:
+    image: nexus.sithvothykiv.site:8888/selo-web:latest
+    ports:
+      - 6003:80
+    deploy:
+      mode: global
+      update_config:
+        parallelism: 1
+        order: start-first
+        failure_action: rollback
+      restart_policy:
+        condition: on-failure
