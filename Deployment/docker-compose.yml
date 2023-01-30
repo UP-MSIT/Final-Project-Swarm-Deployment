@@ -40,3 +40,16 @@ services:
         failure_action: rollback
       restart_policy:
         condition: on-failure
+
+service-php-sample:
+  image: nexus.sithvothykiv.site:8888/php-sample:latest
+  ports:
+    - 6004:80
+  deploy:
+    mode: global
+    update_config:
+      parallelism: 1
+      order: start-first
+      failure_action: rollback
+    restart_policy:
+      condition: on-failure
