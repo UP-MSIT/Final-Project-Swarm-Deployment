@@ -42,7 +42,7 @@ services:
         condition: on-failure
 
 service-php-sample:
-  image: nexus.sithvothykiv.site:8888/php-sample:latest
+  image: nexus.sithvothykiv.site:8888/php-sample-demo:latest
   ports:
     - 6004:80
   deploy:
